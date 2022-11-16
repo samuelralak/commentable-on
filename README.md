@@ -1,8 +1,8 @@
-# CommentableOn
+# _**Under active development**_
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/commentable_on`. To experiment with that code, run `bin/console` for an interactive prompt.
+# Commentable On Steroids 
 
-TODO: Delete this and the text above, and describe your gem
+Adds comments functionality to Rails/ActiveRecord modules
 
 ## Installation
 
@@ -20,10 +20,44 @@ Or install it yourself as:
 
     $ gem install commentable_on
 
+## Database migrations
+
+Generate migration and run migrations
+
+```shell
+rails generate commentable_on:migration
+rails db:migrate
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+Make model commentable
 
+```ruby
+class Post < ActiveRecord::Base
+  acts_as_commentable
+end
+```
+
+Add a comment to model instance:
+  ```ruby
+  @post = Post.find(params[:post_id])
+  @post.add_comment(commenter: current_user, body: "Awesome")
+   ```
+
+The commenter, add `acts_as_commenter` to commenter models for reserve functionality
+```ruby
+class User < ActiveRecord::Base
+  acts_as_commenter
+end
+```
+
+Add comment as a commenter
+```ruby
+@post = Post.find(params[:post_id])
+current_user.comment(commentable: @post, body: "awesome")
+```
+  
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -42,3 +76,8 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the CommentableOn project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/commentable_on/blob/master/CODE_OF_CONDUCT.md).
+
+## TO DO
+
+- [ ] Add comment threading
+- [ ] Automate gem release 

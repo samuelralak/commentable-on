@@ -2,7 +2,7 @@ module CommentableOn
   module Commentable
     def self.included(base)
       base.class_eval do
-        has_many :comments_for, class_name: "CommentableOn::Comment", as: :commentable, dependent: :delete_all do
+        has_many :comments, class_name: "CommentableOn::Comment", as: :commentable, dependent: :delete_all do
           def commenters
             includes(:commenter).map(&:commenter)
           end

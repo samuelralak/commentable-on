@@ -81,4 +81,5 @@ Everyone interacting in the CommentableOn project's codebases, issue trackers, c
 
 - [ ] Add comment threading
 - [ ] Add migration generators 
-- [ ] Automate gem release 
+- [ ] Automate gem release
+- [ ] Add contribution guideline

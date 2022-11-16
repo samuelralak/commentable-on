@@ -10,7 +10,7 @@ module CommentableOn
       end
     end
 
-    def comment(commentable:, body: )
+    def comment(commentable:, body:)
       commentable.add_comment args.merge(commenter: self, body: body)
     end
   end

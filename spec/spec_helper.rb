@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 1) do
   end
 end
 
-
 class Commenter < ActiveRecord::Base
   acts_as_commenter
 end

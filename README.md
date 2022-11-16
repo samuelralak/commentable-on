@@ -45,7 +45,7 @@ Add a comment to model instance:
   @post.add_comment(commenter: current_user, body: "Awesome")
    ```
 
-The commenter, add `acts_as_commenter` to commenter models for reserve functionality
+The commenter, add `acts_as_commenter` to commenter models
 ```ruby
 class User < ActiveRecord::Base
   acts_as_commenter

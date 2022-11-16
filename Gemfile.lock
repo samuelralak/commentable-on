@@ -30,6 +30,7 @@ GEM
     parser (3.1.2.1)
       ast (~> 2.4.1)
     rainbow (3.1.1)
+    rake (12.3.3)
     regexp_parser (2.6.0)
     rexml (3.2.5)
     rspec (3.12.0)
@@ -81,6 +82,7 @@ DEPENDENCIES
   activerecord (~> 7.0)
   commentable_on!
   factory_bot (~> 6.2)
+  rake (~> 12.0)
   rspec (~> 3.6)
   rubocop (= 1.35.1)
   rubocop-rake (~> 0.6.0)

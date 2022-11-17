@@ -1,0 +1,20 @@
+class CommentableOnMigration < ActiveRecord::Migration<%= migration_version %>
+  def self.up
+    create_table :comments do |t|
+      t.references :commentable, polymorphic: true
+      t.references :commenter, polymorphic: true
+      t.text :body
+      t.string :thread
+
+      t.timestamps
+    end
+
+    add_index :comments, :thread
+    add_index :comments, [:commenter_id, :commenter_type]
+    add_index :comments, [:commentable_id, :commentable_type]
+  end
+
+  def self.down
+    drop_table :comments
+  end
+end

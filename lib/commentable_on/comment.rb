@@ -9,5 +9,10 @@ module CommentableOn
 
     validates_presence_of :commentable_id
     validates_presence_of :commenter_id
+
+    def add_reply(commenter:, body:)
+      comment = children.new(commentable: commentable, commenter: commenter, body: body)
+      comment.save
+    end
   end
 end

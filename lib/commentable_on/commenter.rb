@@ -11,7 +11,7 @@ module CommentableOn
     end
 
     def comment_on(commentable:, body:)
-      commentable.add_comment args.merge(commenter: self, body: body)
+      commentable.add_comment commenter: self, body: body
     end
 
     def reply_to(comment:, body:)

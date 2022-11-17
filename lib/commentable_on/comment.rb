@@ -2,7 +2,7 @@ require 'ancestry'
 
 module CommentableOn
   class Comment < ::ActiveRecord::Base
-    has_ancestry ancestry_column: :thread
+    has_ancestry
 
     if defined?(ProtectedAttributes)
       attr_accessible :commentable_id, :commentable_type, :commenter_id, :commenter_type, :commentable, :commenter, :body

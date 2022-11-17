@@ -14,11 +14,11 @@ ActiveRecord::Schema.define(version: 1) do
     t.references :commentable, polymorphic: true
     t.references :commenter, polymorphic: true
     t.text :body
-    t.string :thread
+    t.string :ancestry
     t.timestamps
   end
 
-  add_index :comments, :thread
+  add_index :comments, :ancestry
   add_index :comments, [:commentable_id, :commentable_type]
   add_index :comments, [:commenter_id, :commenter_type]
 

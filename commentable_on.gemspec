@@ -26,4 +26,7 @@ Gem::Specification.new do |spec|
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  # Gem dependencies
+  spec.add_dependency 'ancestry', '~> 4.2'
 end

@@ -1,6 +1,6 @@
 require "rails/generators/migration"
 
-module ActsAsVotable
+module CommentableOn
   class MigrationGenerator < Rails::Generators::Base
     include Rails::Generators::Migration
 

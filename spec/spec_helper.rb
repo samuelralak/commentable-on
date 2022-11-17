@@ -1,6 +1,7 @@
 $LOAD_PATH << File.join(File.dirname(__FILE__), "..", "lib")
 require "sqlite3"
 require "commentable_on"
+require "commentable_on/version"
 require "factory_bot"
 
 Dir["./spec/shared_example/**/*.rb"].sort.each { |f| require f }
@@ -13,9 +14,11 @@ ActiveRecord::Schema.define(version: 1) do
     t.references :commentable, polymorphic: true
     t.references :commenter, polymorphic: true
     t.text :body
+    t.string :thread
     t.timestamps
   end
 
+  add_index :comments, :thread
   add_index :comments, [:commentable_id, :commentable_type]
   add_index :comments, [:commenter_id, :commenter_type]
 

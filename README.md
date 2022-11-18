@@ -2,7 +2,7 @@
 
 # Commentable On Steroids 
 
-Adds comments functionality to Rails/ActiveRecord modules
+Adds comments functionality to Rails/ActiveRecord models. It uses the [ancestry gem](https://github.com/stefankroes/ancestry) to add thread/reply support to comments.
 
 ## Installation
 
@@ -45,6 +45,30 @@ Add a comment to model instance:
   @post.add_comment(commenter: current_user, body: "Awesome")
    ```
 
+Create reply
+```ruby
+comment = commenter.first
+@post.create_reply(comment: comment, commenter: current_user, body: "awesome reply")
+```
+
+Get all root comments
+```ruby
+@post = Post.find(params[:post_id])
+@post.root_comments
+```
+
+Get all replies for a comment
+```ruby
+comment = @post.comments.first
+@post.replies_for(comment)
+```
+
+Get thread for a comment
+```ruby
+comment = @post.comments.first
+@post.thread_for(comment)
+```
+
 The commenter, add `acts_as_commenter` to commenter models
 ```ruby
 class User < ActiveRecord::Base
@@ -56,6 +80,12 @@ Add comment as a commenter
 ```ruby
 @post = Post.find(params[:post_id])
 current_user.comment(commentable: @post, body: "awesome")
+```
+
+Reply to comment as a commenter
+```ruby
+comment = commenter.comments.first
+current_user.reply_to(comment: comment, body: "awesome reply")
 ```
   
 ## Development

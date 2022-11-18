@@ -27,11 +27,11 @@ module CommentableOn
       comments.roots
     end
 
-    def child_comments(comment)
+    def replies_for(comment)
       comments.children_of(comment)
     end
 
-    def descendents_of(comment)
+    def thread_for(comment)
       comments.descendents_of(comment)
     end
   end

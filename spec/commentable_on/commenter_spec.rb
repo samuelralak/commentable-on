@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe CommentableOn::Commentable do
+describe CommentableOn::Commenter do
   it "is not commenter" do
     expect(NotCommenter).not_to be_commenter
   end

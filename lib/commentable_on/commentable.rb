@@ -14,5 +14,25 @@ module CommentableOn
       comment = CommentableOn::Comment.new(commentable: self, commenter: commenter, body: body)
       comment.save
     end
+
+    def create_reply(comment:, commenter:, body:)
+      unless comment.instance_of?(CommentableOn::Comment)
+        return CommentableOn::Comment.create(commentable: self, commenter: commenter, body: body, parent_id: comment)
+      end
+
+      comment.children.create(commentable: self, commenter: commenter, body: body)
+    end
+
+    def root_comments
+      comments.roots
+    end
+
+    def child_comments(comment)
+      comments.children_of(comment)
+    end
+
+    def descendents_of(comment)
+      comments.descendents_of(comment)
+    end
   end
 end

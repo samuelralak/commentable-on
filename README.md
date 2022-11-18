@@ -1,6 +1,6 @@
 # Commentable On Steroids 
 
-Adds comments functionality to Rails/ActiveRecord models. It uses the [ancestry gem](https://github.com/stefankroes/ancestry) to add thread/reply support to comments.
+Adds comments functionality to Rails/ActiveRecord models. It uses the [ancestry gem](https://github.com/stefankroes/ancestry) to add thread/reply.
 
 ## Installation
 

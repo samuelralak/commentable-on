@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email = ["thesamuelralak@gmail.com"]
 
   spec.summary = "Provides comment functionality with replies"
-  spec.description = "Placeholder description text explaining how commentable on steroids will save the world in 5 words or less"
+  spec.description = "Adds comments functionality to Rails/ActiveRecord models. It uses the [ancestry gem](https://github.com/stefankroes/ancestry) to add thread/reply"
   spec.homepage = "https://github.com/samuelralak/commentable-on"
   spec.license = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
